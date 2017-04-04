@@ -1,0 +1,29 @@
+{
+	"name": "just-better/magento2-algolia-wordpress-integration",
+	"description": "Magento 2 module which integrates Wordpress pages and posts in the Algolia Magento 2 module",
+	"homepage": "https://github.com/just-better/magento2-algolia-wordpress-integration",
+	"authors": [
+		{
+			"name": "Roy Duineveld",
+			"homepage": "https://royduineveld.nl"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/just-better/magento2-algolia-wordpress-integration/issues"
+	},
+	"require": {
+		"php": "~5.5.0|~5.6.0|~7.0.0",
+		"algolia/algoliasearch-magento-2": "*"
+	},
+	"type": "magento2-module",
+	"version": "1.0.0",
+	"license": [
+		"MIT",
+	],
+	"autoload": {
+		"files": [ "registration.php" ],
+		"psr-4": {
+			"JustBetter\\AlgoliaWordpressIntegration\\": ""
+		}
+	}
+}
