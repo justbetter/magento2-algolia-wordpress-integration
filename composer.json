@@ -12,7 +12,7 @@
 		"issues": "https://github.com/just-better/magento2-algolia-wordpress-integration/issues"
 	},
 	"require": {
-		"php": "~5.5.0|~5.6.0|~7.0.0",
+		"php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0",
 		"algolia/algoliasearch-magento-2": "*"
 	},
 	"type": "magento2-module",
