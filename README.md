@@ -7,6 +7,7 @@ This Magento 2 module integrates Wordpress pages and posts (with the [Wordpress 
 - `composer require just-better/magento2-algolia-wordpress-integration`
 - `bin/magento module:enable JustBetter_AlgoliaWordpressIntegration`
 - `bin/magento setup:upgrade && bin/magento setup:static-content:deploy`
+- Make sure you've set the base url, the `{{base_url}}` placeholder won't work
 
 ## Compability
 The module extends one helper in the [Algolia Magento 2 module](https://github.com/algolia/algoliasearch-magento-2/), is tested on Magento 2.1.5 and the Algolia Magento 2 module version 1.0.10.

@@ -15,7 +15,7 @@ class PageHelper extends \Algolia\AlgoliaSearch\Helper\Entity\PageHelper
             $key    = true;
 
             while($key) {
-                $apiUrl         = $baseUrl.'/wp/?rest_route=/wp/v2/'.$postType.'&per_page=100&page='.$page;
+                $apiUrl         = $baseUrl.'wp/?rest_route=/wp/v2/'.$postType.'&per_page=100&page='.$page;
                 $wordpressPages = json_decode(file_get_contents( $apiUrl ));
 
                 foreach($wordpressPages as $wordpressPage) {
