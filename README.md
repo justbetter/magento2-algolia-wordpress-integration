@@ -16,8 +16,8 @@ The module extends one helper in the [Algolia Magento 2 module](https://github.c
 Please create a [issue](https://github.com/just-better/magento2-algolia-wordpress-integration/issues) or a [pull request](https://github.com/just-better/magento2-algolia-wordpress-integration/pulls).
 
 ## License
-[MIT](LICENSE.txt)
+[MIT](LICENSE)
 
 ---
 
-[![JustBetter](https://justbetter.nl/app/uploads/2016/01/logo_justbetter_black-2x-new.png)](https://justbetter.nl)
+<a href="https://justbetter.nl" title="JustBetter"><img src="https://raw.githubusercontent.com/just-better/art/master/justbetter-logo.png" width="200px" alt="JustBetter logo"></a>
