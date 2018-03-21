@@ -2,11 +2,37 @@
 
 namespace JustBetter\AlgoliaWordpressIntegration\Helper\Entity;
 
-class PageHelper extends \Algolia\AlgoliaSearch\Helper\Entity\PageHelper
+use Magento\Store\Model\StoreManagerInterface;
+
+/**
+ * Class PageHelper
+ *
+ * @package JustBetter\AlgoliaWordpressIntegration\Helper\Entity
+ */
+class PageHelper
 {
-    public function getPages( $storeId )
+    /**
+     * @var StoreManagerInterface
+     */
+    protected $storeManager;
+
+    /**
+     * PageHelper constructor.
+     *
+     * @param StoreManagerInterface $storeManager
+     */
+    public function __construct(StoreManagerInterface $storeManager)
     {
-        $pages      = parent::getPages($storeId);
+        $this->storeManager = $storeManager;
+    }
+
+    /**
+     * @param $pages
+     * @param $result
+     * @return array
+     */
+    public function afterGetPages($pages, $result)
+    {
         $postTypes  = ['pages', 'posts'];
         $baseUrl    = $this->storeManager->getStore()->getBaseUrl();
 
@@ -19,7 +45,7 @@ class PageHelper extends \Algolia\AlgoliaSearch\Helper\Entity\PageHelper
                 $wordpressPages = json_decode(file_get_contents( $apiUrl ));
 
                 foreach($wordpressPages as $wordpressPage) {
-                    $pages[] = [
+                    $result[] = [
                         'slug'      => $wordpressPage->slug,
                         'name'      => $wordpressPage->title->rendered,
                         'objectID'  => 'wp'.$wordpressPage->id,
@@ -33,6 +59,45 @@ class PageHelper extends \Algolia\AlgoliaSearch\Helper\Entity\PageHelper
             }
         }
 
-        return $pages;
+        return $result;
+    }
+
+    /**
+     * @param       $s
+     * @param array $completeRemoveTags
+     * @return mixed|string
+     */
+    protected function strip($s, $completeRemoveTags = [])
+    {
+        if (!empty($completeRemoveTags) && $s) {
+            $dom = new \DOMDocument();
+            if (@$dom->loadHTML(mb_convert_encoding($s, 'HTML-ENTITIES', 'UTF-8'))) {
+                $toRemove = [];
+                foreach ($completeRemoveTags as $tag) {
+                    $removeTags = $dom->getElementsByTagName($tag);
+
+                    foreach ($removeTags as $item) {
+                        $toRemove[] = $item;
+                    }
+                }
+
+                foreach ($toRemove as $item) {
+                    $item->parentNode->removeChild($item);
+                }
+
+                $s = $dom->saveHTML();
+            }
+        }
+
+        $s = html_entity_decode($s, null, 'UTF-8');
+
+        $s = trim(preg_replace('/\s+/', ' ', $s));
+        $s = preg_replace('/&nbsp;/', ' ', $s);
+        $s = preg_replace('!\s+!', ' ', $s);
+        $s = preg_replace('/\{\{[^}]+\}\}/', ' ', $s);
+        $s = strip_tags($s);
+        $s = trim($s);
+
+        return $s;
     }
 }
