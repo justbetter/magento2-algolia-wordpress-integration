@@ -1,4 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-	<preference for="Algolia\AlgoliaSearch\Helper\Entity\PageHelper" type="JustBetter\AlgoliaWordpressIntegration\Helper\Entity\PageHelper" />
+	<type name="Algolia\AlgoliaSearch\Helper\Entity\PageHelper">
+		<plugin name="justbetterAlgoliaWordpress" type="JustBetter\AlgoliaWordpressIntegration\Helper\Entity\PageHelper" />
+	</type>
 </config>
