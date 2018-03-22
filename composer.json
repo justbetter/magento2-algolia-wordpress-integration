@@ -12,11 +12,11 @@
 		"issues": "https://github.com/justbetter/magento2-algolia-wordpress-integration/issues"
 	},
 	"require": {
-		"php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0",
+		"php": ">=5.5.0",
 		"algolia/algoliasearch-magento-2": "*"
 	},
 	"type": "magento2-module",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"license": "MIT",
 	"autoload": {
 		"files": [ "registration.php" ],
