@@ -18,6 +18,9 @@ Please create a [issue](https://github.com/justbetter/magento2-algolia-wordpress
 ## License
 [MIT](LICENSE)
 
+## About us
+We’re a innovative development agency from The Netherlands building awesome websites, webshops and web applications with Laravel and Magento. Check out our website [justbetter.nl](https://justbetter.nl) and our [open source projects](https://github.com/justbetter).
+
 ---
 
 <a href="https://justbetter.nl" title="JustBetter"><img src="https://raw.githubusercontent.com/justbetter/art/master/justbetter-logo.png" width="200px" alt="JustBetter logo"></a>
