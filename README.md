@@ -1,6 +1,6 @@
 # Magento 2 Algolia Wordpress Integration
 
-This Magento 2 module integrates Wordpress pages and posts (with the [Wordpress REST API](https://developer.wordpress.org/rest-api/)) in the [Algolia Magento 2 module](https://github.com/algolia/algoliasearch-magento-2/). This is usefull when you're using the [Fishpig Magento WordPress Integration](https://fishpig.co.uk/magento-2/wordpress-integration/), in our case with the [root](https://github.com/algolia/algoliasearch-magento-2/) extension. Also see [this feature request](https://github.com/algolia/algoliasearch-magento-2/issues/153).
+This Magento 2 module integrates Wordpress pages and posts (with the [Wordpress REST API](https://developer.wordpress.org/rest-api/)) in the [Algolia Magento 2 module](https://github.com/algolia/algoliasearch-magento-2/). This is usefull when you're using the [Fishpig Magento WordPress Integration](https://fishpig.co.uk/magento-2/wordpress-integration/), in our case with the [root](https://fishpig.co.uk/magento/wordpress-integration/root/) extension. Also see [this feature request](https://github.com/algolia/algoliasearch-magento-2/issues/153).
 
 ## Installation
 
