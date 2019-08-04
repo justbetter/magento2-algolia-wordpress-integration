@@ -36,15 +36,15 @@ class PageHelper
         $postTypes  = ['pages', 'posts'];
         $baseUrl    = $this->storeManager->getStore()->getBaseUrl();
 
-        foreach($postTypes as $postType) {
+        foreach ($postTypes as $postType) {
             $page   = 1;
             $key    = true;
 
-            while($key) {
+            while ($key) {
                 $apiUrl         = $baseUrl.'wp/?rest_route=/wp/v2/'.$postType.'&per_page=100&page='.$page;
-                $wordpressPages = json_decode(file_get_contents( $apiUrl ));
+                $wordpressPages = json_decode(file_get_contents($apiUrl));
 
-                foreach($wordpressPages as $wordpressPage) {
+                foreach ($wordpressPages as $wordpressPage) {
                     $result[] = [
                         'slug'      => $wordpressPage->slug,
                         'name'      => $wordpressPage->title->rendered,
@@ -55,7 +55,7 @@ class PageHelper
                 }
 
                 $page++;
-                $key = !empty( $wordpressPages );
+                $key = !empty($wordpressPages);
             }
         }
 
