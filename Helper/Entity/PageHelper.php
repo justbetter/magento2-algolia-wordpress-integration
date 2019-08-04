@@ -42,7 +42,9 @@ class PageHelper
 
             while ($key) {
                 $apiUrl         = $baseUrl.'wp/?rest_route=/wp/v2/'.$postType.'&per_page=100&page='.$page;
-                $wordpressPages = json_decode(file_get_contents($apiUrl));
+                $wordpressPages = json_decode(file_get_contents($apiUrl, false, stream_context_create([
+                    'http' => ['ignore_errors' => true],
+                ])));
 
                 foreach ($wordpressPages as $wordpressPage) {
                     $result[] = [
