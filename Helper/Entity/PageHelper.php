@@ -46,6 +46,11 @@ class PageHelper
                     'http' => ['ignore_errors' => true],
                 ])));
 
+                if (strpos($http_response_header[0], '200') === false) {
+                    $key = false;
+                    break;
+                }
+
                 foreach ($wordpressPages as $wordpressPage) {
                     $result[] = [
                         'slug'      => $wordpressPage->slug,
@@ -57,7 +62,6 @@ class PageHelper
                 }
 
                 $page++;
-                $key = !empty($wordpressPages);
             }
         }
 
